@@ -1,6 +1,6 @@
 import { Conteiner } from "./components/Container"
 import { NavMenu } from "./components/NavMenu"
-import { Home } from "./pages/Home"
+import { Home } from "./components/pages/Home"
 import './styles/globalStyle.css'
 
 function App() {
