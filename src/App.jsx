@@ -14,7 +14,7 @@ function App() {
       <Conteiner>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="/movie-details" element={<MovieDetails />}/>
+        <Route path="/movie-details:id" element={<MovieDetails />}/>
       </Routes>
         <NavMenu />
       </Conteiner>
