@@ -7,5 +7,8 @@ const api = axios.create({
 export async function getMovies(){
     let response = await api.get('movies')
     return response.data
-    console.log(response)
+}
+export async function getMoviesInfo(id){
+    let response = await api.get(`movies/${id}`)
+    return response.data
 }
