@@ -1,23 +1,22 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './MovieList.css'
 import { getMovies } from '../services/api'
 import { MovieCard } from './MovieCard'
 import { Search } from './Search'
-
-export function MovieList(){
+export function MovieList() {
     const [movies, setMovies] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         const getDataApi = async () => {
             setMovies(await getMovies())
         }
         getDataApi()
-    },[])
+    }, [])
     return (
         <>
-        <Search />
+            <Search />
             <div className="MovieList">
-                {movies.map(movie=><MovieCard movie={movie}/>)}
+                {movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}
             </div>
         </>
     )

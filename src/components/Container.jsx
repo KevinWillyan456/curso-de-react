@@ -1,7 +1,6 @@
 import './Container.css'
-
-export function Conteiner({children}){
-    return (
+export function Container({children}){
+    return(
         <div className="container">
             {children}
         </div>
