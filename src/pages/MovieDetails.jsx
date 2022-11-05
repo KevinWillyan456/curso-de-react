@@ -1,7 +1,35 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import { ThreeDots } from "react-loader-spinner"
 import { useParams } from "react-router-dom"
 import { getMovieInfo } from "../services/api"
+
+import styled from "styled-components"
+
+// Componentes Estilizados - Super poderes
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+`
+
+const BgContainer = styled.div`
+    width: 100%;
+    height: 200px;
+    background-image: url(${({image})=>image});
+    background-size: cover;
+`
+
+const Title = styled.h1`
+    color: white;
+    margin-top: 16px;
+`
+
+const Synopsis = styled.p`
+    color: white;
+    text-align: justify;
+`
 
 export function MovieDetails(){
     const [movie,setMovie] = useState(null)
@@ -15,7 +43,27 @@ export function MovieDetails(){
     },[])
     return (
         <>
-            {movie && <img src={movie.images.background} />}
+            <Div>
+                {movie?.title ? (
+                    <>
+                        <BgContainer image={movie.images.background}/>
+                        <Title>{movie.title}</Title>
+                        <Synopsis>{movie.synopsis}</Synopsis>
+                    </>
+                ) :(
+                    <ThreeDots 
+                    height="80" 
+                    width="80" 
+                    radius="9"
+                    color="#f76190" 
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClassName=""
+                    visible={true}
+                    />
+                )
+                }
+            </Div>
         </>
     )
 }
