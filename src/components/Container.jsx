@@ -5,6 +5,7 @@ const Div = styled.div`
     height: 100vh;
     background: linear-gradient(180deg, #17151F 0%, #1C172B 100%);
     position: relative;
+    overflow-y: hidden;
     padding: 50px 25px 0 25px;
 `
 
